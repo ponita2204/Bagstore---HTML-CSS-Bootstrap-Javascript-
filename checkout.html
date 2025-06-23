@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NiTa Store</title>
+    <link rel="shortcut icon" href="/img/ab3.jpeg" type="image/x-icon">
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <style>
+        .cart-item-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex justify-content-between align-items-center order-lg-0" href="index.html">
+                <!-- <img src="images/shopping-bag-icon.png" alt="site icon"> -->
+                <span class="text-uppercase fw-lighter ms-2">BagStore</span>
+            </a>
+
+            <div class="order-lg-2 nav-btns">
+                <button type="button" class="btn position-relative" id="cartButton">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge bg-primary"></span>
+                </button>
+            </div>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse order-lg-1" id="navMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/shop.html">Shop</a>
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/aboutUs.html">About</a>
+                    </li>
+                    <li class="nav-item px-2 py-2">
+                        <a class="nav-link text-uppercase text-dark" href="/contect.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end of navbar -->
+    <!-- checkout section -->
+    <section id="checkout" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Checkout</h2>
+            <form id="checkoutForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="mb-4">Billing Details</h4>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter your city" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="zip" class="form-label">ZIP Code</label>
+                            <input type="text" class="form-control" id="zip" placeholder="Enter your ZIP code" required>
+                        </div>
+                        <div id="paypal-button-container"></div>
+                    </div>
+                   
+                    <div class="col-md-8">
+                        <h4>Your Cart Items</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartItems">
+                                <!-- Cart items will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                        <h5>Total: <span id="cartTotal">$0.00</span></h5>
+                        <p id="emptyCartMsg" class="text-center text-muted" style="display: none;">Your cart is empty.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- end of checkout section -->
+
+<!-- footer -->
+<footer class="bg-body-secondary py-5">
+    <div class="container">
+        <hr class="my-4 bg-dark">
+        <div class="row text-white g-4">
+            <div class="col-md-6 col-lg-3">
+                <a class = "text-uppercase text-decoration-none brand text-dark" href = "index.html">BagStore App</a> <br>
+                <!-- <p class = "text-white text-muted mt-3">Wellcome to  </p>  -->
+                  <img style="width: 150px; height: 150px;" src="/img/qr.png" alt="">
+            </div>
+
+            
+
+            <div class="col-md-6 col-lg-3">
+                <h5 class="fw-light mb-3 text-dark">Follow Us</h5>
+                <div>
+                    
+                    <ul class="list-unstyled d-flex">
+                        <li>
+                            <a href="https://web.telegram.org/k/"
+                                class="text-white text-decoration-none text-muted fs-4 me-4">
+                                <i class="fab fa-telegram"></i>
+                               
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://www.facebook.com/" target="_blank"
+                                class="text-white text-decoration-none text-muted fs-4 me-4">
+                                <i class="fab fa-facebook-f"></i>
+                                
+                            </a>
+                        </li>
+                         <li>
+                            <a href="https://www.youtube.com/"
+                                class="text-white text-decoration-none text-muted fs-4 me-4">
+                                <i class="fab fa-youtube"></i>
+                                
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com"
+                                class="text-white text-decoration-none text-muted fs-4 me-4">
+                                <i class="fab fa-tiktok"></i>
+                                
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com/po__nita/"
+                                class="text-white text-decoration-none text-muted fs-4 me-4">
+                                <i class="fab fa-instagram"></i>
+                             
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-dark">
+                <h5 class="fw-light mb-3 ">Contact</h5>
+                <div class="d-flex justify-content-start align-items-start my-2 text-muted">
+                    <span class="me-3">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </span>
+                    <span class="fw-light">
+                        58p Street, Sen Sok, PhnomPenh, Cambodia
+                    </span>
+                </div>
+                <div class="d-flex justify-content-start align-items-start my-2 text-muted">
+                    <span class="me-3">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="fw-light"> nitapo@gmail.com </span>
+                </div>
+                <div class="d-flex justify-content-start align-items-start my-2 text-muted">
+                    <span class="me-3">
+                        <i class="fas fa-phone-alt"></i>
+                    </span>
+                    <span class="fw-light"> +885 888565 388 </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <h5 class="fw-light text-dark">WE ACCEPT</h5>
+                <ul class="list-unstyled">
+                    <li class="my-3">
+                        <!-- <a href = "/index.html" class = "text-white text-decoration-none text-muted">
+                        <i class = "fas fa-chevron-right me-1"></i> Home
+                    </a>  -->
+                        <img style="height: 65px; width: 300px" src="/img/pay.png" alt="" />
+                    </li>
+                    <!-- <li class = "my-3">
+                    <a href = "/collection.html" class = "text-white text-decoration-none text-muted">
+                        <i class = "fas fa-chevron-right me-1"></i> Collection
+                    </a>
+                </li> -->
+                    <!-- <li class = "my-3">
+                    <a href = "#" class = "text-white text-decoration-none text-muted">
+                        <i class = "fas fa-chevron-right me-1"></i> Blogs
+                    </a>
+                </li> -->
+                    <!-- <li class = "my-3">
+                    <a href = "/aboutUs.html" class = "text-white text-decoration-none text-muted">
+                        <i class = "fas fa-chevron-right me-1"></i> About Us
+                    </a>
+                </li> -->
+                </ul>
+            </div>
+            <span class="text-center text-dark ">© 2025 BagStore. All rights reserved.</span>
+        </div>
+        
+    </div>
+</footer>
+<!-- end of footer --><!-- footer -->
+       <footer class="bg-body-secondary py-5">
+        <div class="container">
+            <hr class="my-4 bg-dark">
+            <div class="row text-white g-4">
+                <div class="col-md-6 col-lg-3">
+                    <a class = "text-uppercase text-decoration-none brand text-dark" href = "index.html">BagStore App</a> <br>
+                    <!-- <p class = "text-white text-muted mt-3">Wellcome to  </p>  -->
+                      <img style="width: 150px; height: 150px;" src="/img/qr.png" alt="">
+                </div>
+
+                
+
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-light mb-3 text-dark">Follow Us</h5>
+                    <div>
+                        
+                        <ul class="list-unstyled d-flex">
+                            <li>
+                                <a href="https://web.telegram.org/k/"
+                                    class="text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class="fab fa-telegram"></i>
+                                   
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank"
+                                    class="text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class="fab fa-facebook-f"></i>
+                                    
+                                </a>
+                            </li>
+                             <li>
+                                <a href="https://www.youtube.com/"
+                                    class="text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class="fab fa-youtube"></i>
+                                    
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.tiktok.com"
+                                    class="text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class="fab fa-tiktok"></i>
+                                    
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/po__nita/"
+                                    class="text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class="fab fa-instagram"></i>
+                                 
+                                </a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 text-dark">
+                    <h5 class="fw-light mb-3 ">Contact</h5>
+                    <div class="d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class="me-3">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </span>
+                        <span class="fw-light">
+                            58p Street, Sen Sok, PhnomPenh, Cambodia
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class="me-3">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="fw-light"> nitapo@gmail.com </span>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class="me-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </span>
+                        <span class="fw-light"> +885 888565 388 </span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-light text-dark">WE ACCEPT</h5>
+                    <ul class="list-unstyled">
+                        <li class="my-3">
+                            <!-- <a href = "/index.html" class = "text-white text-decoration-none text-muted">
+                            <i class = "fas fa-chevron-right me-1"></i> Home
+                        </a>  -->
+                            <img style="height: 65px; width: 300px" src="/img/pay.png" alt="" />
+                        </li>
+                        <!-- <li class = "my-3">
+                        <a href = "/collection.html" class = "text-white text-decoration-none text-muted">
+                            <i class = "fas fa-chevron-right me-1"></i> Collection
+                        </a>
+                    </li> -->
+                        <!-- <li class = "my-3">
+                        <a href = "#" class = "text-white text-decoration-none text-muted">
+                            <i class = "fas fa-chevron-right me-1"></i> Blogs
+                        </a>
+                    </li> -->
+                        <!-- <li class = "my-3">
+                        <a href = "/aboutUs.html" class = "text-white text-decoration-none text-muted">
+                            <i class = "fas fa-chevron-right me-1"></i> About Us
+                        </a>
+                    </li> -->
+                    </ul>
+                </div>
+                <span class="text-center text-dark ">© 2025 BagStore. All rights reserved.</span>
+            </div>
+            
+        </div>
+    </footer>
+    <!-- end of footer -->
+
+    <!-- jquery -->
+    <script src="js/jquery-3.6.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <!-- custom js -->
+    <script src="js/script.js"></script>
+    <script
+    src="https://www.paypal.com/sdk/js?client-id=AY6NffZH8rgsHxFcEsP389JW19SjrJ3mrwuOvhY4Ildr_WGKGjbDNGREXe9HtmxqQGeU5WEgng2jr5Uc"></script>
+    <script src="js/shoppingcart.js"></script>
+    <script>
+        function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItems = document.getElementById("cartItems");
+    cartItems.innerHTML = ""; // Clear existing items
+
+    if (cart.length === 0) {
+        document.getElementById("emptyCartMsg").style.display = "block";
+        document.getElementById("cartTotal").innerText = "$0.00";
+        return;
+    }
+
+    let cartTotal = 0;
+
+    cart.forEach((item, index) => {
+        // Validate price, quantity, and image
+        if (!item.name || !item.price || !item.quantity) {
+            // If any of the required properties are missing, skip this item
+            return;
+        }
+
+        const price = parseFloat(item.price);
+        const quantity = parseInt(item.quantity);
+        const image = item.image;
+
+        if (isNaN(price) || isNaN(quantity)) {
+            // If the price or quantity is not a number, skip this item
+            return;
+        }
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>
+                ${image ? `<img src="${image}" class="cart-item-image" alt="${item.name}">` : ''}
+                ${item.name}
+            </td>
+            <td>${quantity}</td>
+            <td>$${price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            <td>$${(price * quantity).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">X</button>
+            </td>
+        `;
+        cartItems.appendChild(row);
+        cartTotal += price * quantity;
+    });
+
+    document.getElementById("cartTotal").innerText = `$${cartTotal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+}
+
+function removeFromCart(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1); // Remove the item at the specified index
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+    loadCart(); // Reload the cart to reflect changes
+}
+    // PayPal Button Integration
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: document.getElementById("cartTotal").innerText.replace('$', '')
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+                // Optionally, redirect to a success page or clear the cart
+            });
+        }
+    }).render('#paypal-button-container');
+
+    // Load cart items on page load
+    window.onload = loadCart;
+    document.getElementById('cartButton').addEventListener('click', function () {
+        window.location.href = 'ShoppingCart.html'; // Redirect to ShoppingCart page
+      });
+    </script>
+</body>
+
+</html>
